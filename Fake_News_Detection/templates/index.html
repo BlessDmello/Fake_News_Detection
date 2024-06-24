@@ -1,0 +1,176 @@
+<html>
+  <head>
+  
+  </head>
+  <style>
+  
+  body {
+    padding: 2rem;
+    background: linear-gradient(#000428, #004e92);;
+  }
+  
+  h1 {
+    font-size: 70px;
+    text-align: center;
+    font-weight: 600;
+    color: #fdfdfe;
+    text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+    0px 0px 20px #b393d3;
+  
+  }
+
+  
+  .wrapper {
+    max-width: 64rem;
+    margin: auto;
+  }
+  
+  form {
+    background: rgba(0,0,0,0.2);
+    padding: 1rem;
+    display: block;
+  
+  }
+  
+  @media only screen and (min-width: 48rem) {
+    form {
+      display: flex;
+    }
+  }
+  
+  input[type="text"] {
+    border: none;
+    line-height: 3rem;
+    padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .button {
+    border-radius: 4px;
+    background-color: #f13939;
+    border: 8px solid #ffffff;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    color: #ffffff;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  
+  .h2{
+    font-size: 35px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(252, 250, 250);
+  }
+
+  .h4{
+    font-size: 20px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(252, 250, 250);
+  }
+  
+  .h3{
+    font-size: 20px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(230, 68, 68);
+  }
+
+  .text-center {
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.h5{
+    font-family: Georgia, sans-serif;
+    font-size: 40;
+    letter-spacing: -2px;
+    text-align: center;
+    color:rgb(230, 68, 68);
+
+  }
+
+  </style>
+  <body>
+  
+  
+    <div class="wrapper">
+      <h1 class="h1">FAKE NEWS DETECTION SYSTEM</h1>
+  <marquee direction="left" class="h3">
+    Disclaimer This model is not 100% accurate
+  </marquee>
+  
+  <h5 class="h5">CHECK NEWS URL TRUE/FAKE</h5>
+      <form action="{{ url_for('predict')}}"method="post">
+  
+  
+        
+        <input type="text"  name="news" placeholder="Enter the news url" required="required" />
+  
+  
+  
+      <button class="button"><span>Predict</span></button>
+  
+      </form>
+      <br>
+  <br>
+  
+  <h2 class="h2">{{ prediction_text }}</h2>
+
+  <h5 class="h5">NEWS URL SUMMARIZATION</h5>
+  <form action="{{ url_for('summarization')}}"method="post">
+  
+  
+    
+    <input type="text"  name="news" placeholder="Enter the news url" required="required" />
+
+
+
+  <button class="button"><span>Summarize</span></button>
+
+  </form>
+  <br>
+<br>
+
+<h2 class="h4">{{ summary }}</h2><br>
+<h2 class="h4">{{ auther }}</h2><br>
+<h2 class="h4">{{ date }}</h2>
+
+
+  <footer>
+    <p class="text-center">Copyright &copy; NielDmello2021-22</p>
+  </footer>
+  
+  </body>
+  </html>
